@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EE2243">
+  <meta name="description" content="کتابخانه کیوتو؛ راهنماهای طراحی، استراتژی، تصویر و همکاری. همه فایل‌ها، در یک جا.">
+  <title>کتابخانه کیوتو | KIYOTO Docs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="library.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/NotoSansArabic-Regular.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+  <a class="skip" href="#collection">رفتن به کتابخانه</a>
+  <header class="topbar">
+    <a href="#" class="wordmark" aria-label="KIYOTO Docs" dir="ltr">KIYOTO<span>®</span></a>
+    <span class="top-label">کتابخانه‌ی کیوتو</span>
+    <a class="studio" href="https://kiyotoadv.github.io/" target="_blank" rel="noopener">وب‌سایت استودیو <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-top"><span dir="ltr">A shared point of view.</span><span>از آشنایی تا خلق کردن</span></div>
+      <div class="hero-layout">
+        <div class="intro">
+          <h1 id="hero-title">اینجا،<br>هم‌صفحه‌ایم.</h1>
+          <p>راهنماها، مسیرها و هر چیزی که برای ساختن با کیوتو لازم دارید. یک کتابخانه برای شروع‌های روشن‌تر.</p>
+          <a class="explore" href="#collection">ورود به کتابخانه <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="motion-study">
+          <div class="geometry" id="geometry" aria-hidden="true">
+            <div class="geo-tile geo-orbit"><div class="orbit-turn"><i></i><b></b></div><span class="orbit-center"></span></div>
+            <div class="geo-tile geo-arch"><div class="arch-turn"><i></i></div></div>
+            <div class="geo-tile geo-stripes"><div class="stripe-shuttle"><i></i><i></i><i></i><i></i><i></i></div><span class="stripe-disc"></span></div>
+            <div class="geo-tile geo-disc"><div class="disc-turn"></div><span class="disc-center"></span></div>
+          </div>
+          <div class="motion-caption"><span dir="ltr">Different forms. One language.</span><button id="motion-toggle" aria-pressed="false" aria-label="توقف حرکت گرافیک"><span class="motion-icon" aria-hidden="true">Ⅱ</span><span id="motion-label">توقف حرکت</span></button></div>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>یک زبان مشترک، هزار امکان.</span><span dir="ltr">KIYOTO / THE DOCUMENT COLLECTION</span></div>
+    </section>
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-heading"><div><h2 id="collection-title">روی یک مسیر.</h2><p>فایل مورد نیازتان را انتخاب کنید؛ همین‌جا ورق بزنید.</p></div><span class="collection-count" id="collection-count"></span></div>
+      <div class="catalog-controls">
+        <div class="filters" role="group" aria-label="دسته‌بندی فایل‌ها">
+          <button class="filter active" data-category="all" aria-pressed="true">همه فایل‌ها</button>
+          <button class="filter" data-category="شروع همکاری" aria-pressed="false">شروع همکاری</button>
+          <button class="filter" data-category="طراحی و استراتژی" aria-pressed="false">طراحی و استراتژی</button>
+          <button class="filter" data-category="تصویر و محتوا" aria-pressed="false">تصویر و محتوا</button>
+          <button class="filter" data-category="همکاری ماهانه" aria-pressed="false">همکاری ماهانه</button>
+        </div>
+        <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="دنبال چه می‌گردید؟" aria-label="جست‌وجوی فارسی یا انگلیسی"></label>
+      </div>
+      <p id="results-status" class="sr-only" aria-live="polite"></p>
+      <div class="book-grid" id="book-grid"></div>
+      <div class="empty" id="empty" hidden><h3>فایلی پیدا نشد.</h3><p>نام دیگری را امتحان کنید یا جست‌وجو را پاک کنید.</p><button id="clear-search">پاک کردن جست‌وجو</button></div>
+      <p class="load-error" id="catalog-error" role="alert" hidden>کتابخانه بارگذاری نشد. صفحه را دوباره باز کنید.</p>
+    </section>
+  </main>
+  <footer><a href="#" class="footer-mark" dir="ltr">KIYOTO®</a><p>برای ساختن چیزی که به شما می‌آید.</p><a href="https://kiyotoadv.github.io/" target="_blank" rel="noopener">دیدار در استودیو ↗</a></footer>
+  <dialog id="reader" aria-labelledby="reader-title">
+    <div class="reader-shell">
+      <div class="reader-header"><button id="close-reader" class="reader-back">بستن <span aria-hidden="true">×</span></button><div class="reader-document"><h2 id="reader-title"></h2><span id="reader-subtitle" dir="ltr"></span></div><a id="download" class="download" download>دانلود PDF <span aria-hidden="true">↓</span></a></div>
+      <div class="reader-toolbar">
+        <div class="toolbar-group"><button id="toggle-thumbs" aria-label="نمایش بندانگشتی صفحات" aria-expanded="false">▤ <span>صفحات</span></button><button id="reader-theme" aria-label="تغییر رنگ محیط مطالعه">◐</button></div>
+        <div class="page-nav" dir="ltr"><button id="prev-page" aria-label="صفحه قبل">‹</button><label class="page-input"><input id="page-number" type="number" min="1" value="1" aria-label="شماره صفحه"><span>/ <span id="total-pages">—</span></span></label><button id="next-page" aria-label="صفحه بعد">›</button></div>
+        <div class="toolbar-group" dir="ltr"><button id="zoom-out" aria-label="کوچک‌نمایی">−</button><button id="zoom-fit" title="اندازه مناسب صفحه">Fit</button><button id="zoom-in" aria-label="بزرگ‌نمایی">+</button><button id="fullscreen" aria-label="تمام صفحه">⛶</button></div>
+      </div>
+      <div class="reader-body"><aside id="thumbnails" aria-label="صفحات" hidden></aside><div class="page-workspace" id="page-workspace"><div class="reader-message" id="reader-message" role="status">در حال آماده‌سازی فایل…</div><div class="page-paper" id="page-paper"><canvas id="pdf-canvas" aria-label="صفحه سند"></canvas><div id="text-layer" class="textLayer"></div></div></div></div>
+      <div class="reader-bottom"><span id="reading-progress">KIYOTO / DOCUMENTS</span><span class="keyboard-hint">کلیدهای ← → برای ورق زدن · Esc برای بستن</span><a id="original-pdf" target="_blank" rel="noopener">باز کردن فایل اصلی ↗</a></div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+    </div>
+  </dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
