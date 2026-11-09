@@ -45,7 +45,7 @@ async function openDocument(doc,requestedPage) {
   if(loadingTask) await loadingTask.destroy().catch(()=>{});
   if(version!==documentVersion)return;
   pdf=undefined;activeDoc=doc;pageNumber=requestedPage||lastPosition(doc);zoom=1;fitMode=true;
-  $('reader-title').textContent=doc.title;$('reader-subtitle').textContent=`${doc.en} / ${size(doc.bytes)}`;
+  $('reader-title').textContent=doc.title;$('reader-subtitle').textContent=`${doc.number} / ${doc.en} / ${size(doc.bytes)}`;
   $('download').href=doc.file;$('download').download=doc.file.split('/').pop();$('original-pdf').href=doc.file;
   $('page-paper').hidden=true;$('total-pages').textContent=doc.pages;$('page-number').value=pageNumber;
   $('page-number').max=doc.pages;$('prev-page').disabled=true;$('next-page').disabled=true;

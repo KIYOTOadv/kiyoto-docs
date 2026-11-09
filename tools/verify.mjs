@@ -9,6 +9,9 @@ assert.equal(catalog.filter(doc=>doc.primary).length,19);
 assert.equal(readdirSync(resolve(root,'pdfs')).filter(f=>f.endsWith('.pdf')).length,19);
 assert.equal(readdirSync(resolve(root,'assets/covers')).filter(f=>f.endsWith('.webp')).length,19);
 assert.equal(new Set(catalog.map(doc=>doc.id)).size,catalog.length);
+assert.equal(new Set(catalog.map(doc=>doc.number)).size,catalog.length);
+assert.equal(catalog.find(doc=>doc.id==='01-monthly-contract').number,'01-A');
+assert.equal(catalog.find(doc=>doc.id==='01-project-contract').number,'01-B');
 for(const doc of catalog){
   for(const asset of [doc.file,doc.cover])assert(existsSync(resolve(root,asset)),asset);
   assert.equal(statSync(resolve(root,doc.file)).size,doc.bytes);
